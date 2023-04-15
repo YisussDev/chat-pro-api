@@ -6,14 +6,17 @@ import { UsersModule } from './users/users.module';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { MongooseModule } from '@nestjs/mongoose';
-import {JwtModule} from '@nestjs/jwt'
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
   imports: [
     AuthModule,
     MessagesModule,
     UsersModule,
-    MongooseModule.forRoot('mongodb+srv://shgzjxd:230815xd@jesusp.jzdyvsd.mongodb.net/chat-data')
+    ConfigModule.forRoot({
+      envFilePath: '.env'
+    }),
+    MongooseModule.forRoot(`mongodb+srv://shgzjxd:230815xd@jesusp.jzdyvsd.mongodb.net/chat-data`)
   ],
   controllers: [AppController],
   providers: [AppService],
