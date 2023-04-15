@@ -14,6 +14,7 @@ import { ConfigModule } from '@nestjs/config';
     MessagesModule,
     UsersModule,
     ConfigModule.forRoot({
+      isGlobal:true,
       envFilePath: '.env'
     }),
     MongooseModule.forRoot(`mongodb+srv://shgzjxd:230815xd@jesusp.jzdyvsd.mongodb.net/chat-data`)
